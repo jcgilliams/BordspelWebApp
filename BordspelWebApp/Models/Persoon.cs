@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace BordspelWebApp.Models
 {
@@ -7,7 +8,9 @@ namespace BordspelWebApp.Models
         public int Id { get; set; }
         [Required]
         public string Naam { get; set; }
+        [Required]
         public string Voornaam { get; set; }
         public string Beschrijving { get; set; }
+        public ICollection<BordspelPersoon> BordspelPersonen { get; set; }
     }
 }
