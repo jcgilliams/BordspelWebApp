@@ -1,0 +1,57 @@
+﻿/* Primary color instellen*/
+.bg-primary {
+    background-color: #bcfd49 !important;
+}
+
+/* Link teksten vet maken */
+a.nav-link {
+    font-weight: 500;
+}
+
+/* Tekstkleur van navbar brand/tekst aanpassen */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: midnightblue;
+}
+
+/* Tekstkleur van navbar links aanpassen */
+.navbar-custom .navbar-nav .nav-link {
+    color: midnightblue;
+}
+
+/* Tekstkleur van navbar links (bij active/hover) aanpassen */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: cadetblue;
+}
+
+/* Tekstkleur dropdown item aanpassen */
+.dropdown-item {
+    color: midnightblue !important;
+}
+
+/* Tekstkleur van dropdown links (bij active/hover) aanpassen */
+.dropdown-item:hover, .dropdown-item:focus,
+.dropdown-item.active, .dropdown-item:active {
+    background-color: aliceblue;
+}
+
+/* Tekstkleur footer */
+.footerTekst {
+    color: midnightblue;
+    text-align: center;
+}
+
+/* Backgroundcolor body + kleur tekst*/
+.bodyBG {
+    background-color: aliceblue;
+    color: midnightblue;
+}
+
+.bodyTekstkleur {
+    color: midnightblue;
+}
+
+a:hover {
+    color: cadetblue !important;
+}
