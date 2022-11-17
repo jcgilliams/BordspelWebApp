@@ -1,9 +1,12 @@
 ﻿using BordspelWebApp.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using BordspelWebApp.Areas.Data;
 
 namespace BordspelWebApp.Data
 {
-    public class BordspelWebAppContext : DbContext
+    public class BordspelWebAppContext : IdentityDbContext<Gebruiker>
     {
         public BordspelWebAppContext(DbContextOptions<BordspelWebAppContext> option) : base(option)
         {
@@ -19,7 +22,7 @@ namespace BordspelWebApp.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);
             modelBuilder.HasDefaultSchema("BordspelWebApp");
 
             modelBuilder.Entity<Bordspel>().ToTable("Bordspel");
