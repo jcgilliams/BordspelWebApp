@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BordspelWebApp.Areas.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace BordspelWebApp.Models
 {
@@ -8,10 +9,7 @@ namespace BordspelWebApp.Models
         public Bordspel Bordspel { get; set; }
         [Required]
         public int BordspelId { get; set; }
-
-        // nog te doen
-        // public Gebruiker Gebruiker {get; set;}
-        // [Required]
-        // public string GebruikerId {get; set;}
+        public Gebruiker Gebruiker {get; set;}
+        public string GebruikersId { get; set; }
     }
 }
