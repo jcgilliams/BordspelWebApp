@@ -1,5 +1,6 @@
 using BordspelWebApp.Areas.Data;
 using BordspelWebApp.Data;
+using BordspelWebApp.Data.UnitOfWork;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,9 +30,12 @@ namespace BordspelWebApp
         {
             services.AddControllersWithViews();
             services.AddDbContext<BordspelWebAppContext>(options =>
-                                    options.UseSqlServer(Configuration.GetConnectionString("BordspelConnection")));
+                                    options.UseSqlServer(Configuration.GetConnectionString("LocalDBConnection")));
+            // voor andere connectie:
+            //                      options.UseSqlServer(Configuration.GetConnectionString("BordspelConnection")));
             services.AddDefaultIdentity<Gebruiker>().AddEntityFrameworkStores<BordspelWebAppContext>();
             services.AddRazorPages();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.Configure<IdentityOptions>(options =>
             {

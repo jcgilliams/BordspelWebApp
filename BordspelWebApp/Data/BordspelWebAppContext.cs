@@ -35,16 +35,16 @@ namespace BordspelWebApp.Data
             modelBuilder.Entity<BordspelPersoon>().ToTable("BordspelPersoon");
 
             modelBuilder.Entity<Collectie>()   
-              .HasOne(c => c.Bordspel)   
-              .WithMany(b => b.Collecties)
-              .HasForeignKey(c => c.BordspelId) 
-              .IsRequired();
+                .HasOne(c => c.Bordspel)   
+                .WithMany(b => b.Collecties)
+                .HasForeignKey(c => c.BordspelId) 
+                .IsRequired();
 
-/*            modelBuilder.Entity<Collectie>()
-              .HasOne(c => c.Gebruiker)
-              .WithMany(g => g.Collecties)
-              .HasForeignKey(c => c.GebruikersId) // nog na te zien!
-              .IsRequired();*/
+            modelBuilder.Entity<Collectie>()
+                .HasOne(c => c.Gebruiker)
+                .WithMany(g => g.Collecties)
+                .HasForeignKey(c => c.GebruikersId)
+                .IsRequired();
 
             modelBuilder.Entity<Uitgave>()
                 .HasOne(u => u.Bordspel)
