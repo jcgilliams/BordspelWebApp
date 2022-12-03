@@ -30,6 +30,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ViewModels\Create\" />
+    <Folder Include="ViewModels\Delete\" />
+    <Folder Include="ViewModels\Update\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
