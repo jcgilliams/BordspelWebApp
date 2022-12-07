@@ -1,0 +1,37 @@
+﻿@model BordspelWebApp.ViewModels.Lists.ListUitgaveBeheerViewModel
+
+@{
+    ViewData["Title"] = "UitgaveBeheer";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h3 class="display-4">@ViewData["Title"]</h3>
+        </div>
+        <div class="col-6 align-self-center" style="display:flex; justify-content:end">
+            <a asp-controller="AdminUitgave" asp-action="CreateUitgave" class="bodyBG">Maak nieuwe uitgave aan</a>
+        </div>
+        <table class="table table-bordered table-striped">
+            <tbody>
+                @foreach (var uitgave in Model.Uitgaves)
+                {
+                    <tr>
+                        <td class="col-md-3 align-middle">
+                            @Html.DisplayFor(modelItem => uitgave.Bordspel.Naam)
+                        </td>
+                        <td class="col-md-3 align-middle">
+                            @Html.DisplayFor(modelItem => uitgave.Uitgeverij.Naam)
+                        </td>
+                        <td class="col-md-3 align-middle">
+                            <a asp-action="EditUitgave" asp-route-id="@uitgave.Id">Aanpassen</a>
+                        </td>
+                        <td class="col-md-3 align-middle">
+                            <a asp-action="DeleteUitgave" asp-route-id="@uitgave.Id">Verwijderen</a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

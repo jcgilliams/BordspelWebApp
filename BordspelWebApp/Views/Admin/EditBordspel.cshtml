@@ -1,0 +1,78 @@
+﻿@model BordspelWebApp.ViewModels.Update.UpdateBordspelViewModel
+
+@{
+    ViewData["Title"] = "Pas bordspel aan";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h3 class="display-4">@ViewData["Title"]</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form asp-action="Edit" class="needs-validation" novalidate>
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="Afbeelding" />
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="Naam" class="control-label"></label>
+                            <input asp-for="Naam" class="form-control" />
+                            <span asp-validation-for="Naam" class="text-danger" style="font-size:small"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label asp-for="Jaar" class="control-label"></label>
+                        <input asp-for="Jaar" class="form-control" rows="5" cols="60"></input>
+                        <span asp-validation-for="Jaar" class="text-danger" style="font-size:small"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label asp-for="Beschrijving" class="control-label"></label>
+                        <textarea asp-for="Beschrijving" class="form-control" rows="5" cols="60"></textarea>
+                        <span asp-validation-for="Beschrijving" class="text-danger" style="font-size:small"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label asp-for="MinAantalSpelers" class="control-label">Min aantal spelers</label>
+                        <input asp-for="MinAantalSpelers" class="form-control" rows="5" cols="60"></input>
+                    </div>
+                    <div class="col">
+                        <label asp-for="MaxAantalSpelers" class="control-label">Max aantal spelers</label>
+                        <input asp-for="MaxAantalSpelers" class="form-control" rows="5" cols="60"></input>
+                    </div>
+                    <div class="col">
+                        <label asp-for="MinSpeeltijd" class="control-label">Min speeltijd</label>
+                        <input asp-for="MinSpeeltijd" class="form-control" rows="5" cols="60"></input>
+                    </div>
+                    <div class="col">
+                        <label asp-for="MaxSpeeltijd" class="control-label">Max speeltijd</label>
+                        <input asp-for="MaxSpeeltijd" class="form-control" rows="5" cols="60"></input>
+                    </div>
+                </div>
+                <div class="form-row mt-1">
+                    <div class="col">
+                        <label asp-for="Leeftijd" class="control-label"></label>
+                        <input asp-for="Leeftijd" class="form-control" rows="5" cols="60"></input>
+                    </div>
+                </div>
+                <div class="form-group mt-1">
+                    <input type="submit" value="Aanpassen" class="btn btn-outline-info" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <a asp-action="BordspelBeheer" class="bodyBG">Terug naar de lijst</a>
+    </div>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+</div>

@@ -23,32 +23,32 @@
     </div>
     <table class="table table-bordered table-striped">
         <thead>
-            <th class="col-md-2">
+        <th class="col-md-2">
                 @Html.DisplayNameFor(b => b.Bordspellen.ToList()[0].Afbeelding)
-            </th>
-            <th class="col-md-6">
-                Naam
-            </th>
-            <th class="col-md-4">
-                Details
-            </th>
+        </th>
+        <th class="col-md-6">
+                @Html.DisplayNameFor(b => b.Bordspellen.ToList()[0].Naam)
+        </th>
+        <th class="col-md-4">
+            Details
+        </th>
         </thead>
         <tbody>
             @foreach (var bordspel in Model.Bordspellen)
             {
-            <tr>
-                <td class="col-md-2 align-middle">
-                    <img src="~/images/@bordspel.Afbeelding" class="card-img-top" alt="@bordspel.Afbeelding" style="height: 50px; width: auto;">
-                </td>
+                <tr>
+                    <td class="col-md-2 align-middle">
+                        <img src="~/images/@bordspel.Afbeelding" class="card-img-top" alt="@bordspel.Afbeelding" style="height: 50px; width: auto;">
+                    </td>
                     <td class="col-md-6 align-middle">
-                    @Html.DisplayFor(modelItem => bordspel.Naam)
-                </td>
-                <td class="col-md-4 align-middle">
+                        @Html.DisplayFor(modelItem => bordspel.Naam)
+                    </td>
+                    <td class="col-md-4 align-middle">
                         <a style="color: midnightblue" asp-action="DetailsBordspel" asp-route-id="@bordspel.Id">Details</a>
                         |
                         <a style="color: midnightblue">In collectie</a>
-                </td>
-            </tr>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
