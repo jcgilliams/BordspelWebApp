@@ -1,0 +1,70 @@
+﻿@model BordspelWebApp.ViewModels.Create.CreateBordspelPersoonViewModel
+
+@{
+    ViewData["Title"] = "Maak bordspelpersoon aan";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3 class="display-4">@ViewData["Title"]</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form asp-action="Create" class="needs-validation" novalidate>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="BordspelId" class="control-label">Bordspel</label><br />
+                            <select asp-for="BordspelId" class="form-select" aria-label="Default select">
+                                @foreach (var bordspel in Model.Bordspellen)
+                                {
+                                    <option value="@bordspel.Id">@Html.DisplayFor(modelItem => bordspel.Naam)</option>
+                                }
+                            </select>
+                            <span asp-validation-for="BordspelId" class="text-danger" style="font-size:small"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="PersoonId" class="control-label">Uitgeverij</label><br />
+                            <select asp-for="PersoonId" class="form-select" aria-label="Default select">
+                                @foreach (var persoon in Model.Personen)
+                                {
+                                    <option value="@persoon.Id">@Html.DisplayFor(modelItem => persoon.Naam) @Html.DisplayFor(modelItem => persoon.Voornaam)</option>
+                                }
+                            </select>
+                            <span asp-validation-for="PersoonId" class="text-danger" style="font-size:small"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="RolId" class="control-label">Uitgeverij</label><br />
+                            <select asp-for="RolId" class="form-select" aria-label="Default select">
+                                @foreach (var rol in Model.Rollen)
+                                {
+                                    <option value="@rol.Id">@Html.DisplayFor(modelItem => rol.Beschrijving)</option>
+                                }
+                            </select>
+                            <span asp-validation-for="RolId" class="text-danger" style="font-size:small"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group mt-1">
+                        <input type="submit" value="Aanmaken" class="btn btn-outline-info" />
+                        <div>
+                            <a asp-action="BordspelPersonen" class="bodyBG">Terug naar de lijst</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

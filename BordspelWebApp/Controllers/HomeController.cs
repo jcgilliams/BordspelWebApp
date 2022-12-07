@@ -81,7 +81,7 @@ namespace BordspelWebApp.Controllers
                     Leeftijd = bordspel.Leeftijd,
                     Afbeelding = bordspel.Afbeelding,
                     BordspelPersonen = BordspelPersonen,
-                    Uitgaven = Uitgaven
+                    Uitgaves = Uitgaven
                 };
 
                 return View(vm);

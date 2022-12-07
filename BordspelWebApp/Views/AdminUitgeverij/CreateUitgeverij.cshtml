@@ -1,0 +1,63 @@
+﻿@model BordspelWebApp.ViewModels.Create.CreateUitgeverijViewModel
+
+@{
+    ViewData["Title"] = "Maak uitgeverij aan";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h3 class="display-4">@ViewData["Title"]</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form asp-action="Create" class="needs-validation" novalidate>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="Naam" class="control-label"></label>
+                            <input asp-for="Naam" class="form-control"/>
+                            <span asp-validation-for="Naam" class="text-danger" style="font-size:small"></span>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="Land" class="control-label"></label>
+                            <input asp-for="Land" class="form-control"/>
+                            <span asp-validation-for="Land" class="text-danger" style="font-size:small"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="Website" class="control-label"></label>
+                            <input asp-for="Website" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label asp-for="Beschrijving" class="control-label"></label>
+                        <textarea asp-for="Beschrijving" class="form-control" rows="5" cols="60"></textarea>
+                    </div>
+                </div>
+                <div class="form-group mt-1">
+                    <input type="submit" value="Aanmaken" class="btn btn-outline-info" />
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div>
+        <a asp-action="Uitgeverijen" class="bodyBG">Terug naar de lijst</a>
+    </div>
+</div>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }

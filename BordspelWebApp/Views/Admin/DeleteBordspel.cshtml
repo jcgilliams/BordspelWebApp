@@ -1,0 +1,21 @@
+﻿@model BordspelWebApp.ViewModels.Delete.DeleteBordspelViewModel
+@{
+    ViewData["Title"] = "Verwijder bordspel";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3 class="display-4">@ViewData["Title"]</h3>
+            <p>Ben je zeker dat je <b>@Model.Naam</b> wil verwijderen?</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Verwijder" class="btn btn-outline-info" />
+            </form>
+        </div>
+    </div>
+    <a asp-action="Bordspelbeheer" class="bodyBG">Terug naar de lijst</a>

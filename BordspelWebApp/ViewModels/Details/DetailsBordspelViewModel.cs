@@ -17,6 +17,6 @@ namespace BordspelWebApp.ViewModels.Details
         public int? Leeftijd { get; set; }
         public string Afbeelding { get; set; }
         public ICollection<BordspelPersoon> BordspelPersonen { get; set; }
-        public ICollection<Uitgave> Uitgaven { get; set; }
+        public ICollection<Uitgave> Uitgaves { get; set; }
     }
 }

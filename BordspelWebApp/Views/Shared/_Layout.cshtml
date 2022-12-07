@@ -34,12 +34,18 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Admin </a>
                             <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" asp-controller="Admin" asp-action="Bordspelbeheer">Bordspelbeheer</a>
-                                <a class="dropdown-item" asp-controller="Admin" asp-action="Personen">Personen</a>
-                                <a class="dropdown-item" asp-controller="Admin" asp-action="Uitgeverijen">Uitgeverijen</a>
-                                <a class="dropdown-item" asp-controller="Admin" asp-action="Gebruikers">Gebruikers</a>
+                                <hr style="margin: 3px 0" />
+                                <a class="dropdown-item" asp-controller="AdminBordspelPersoon" asp-action="BordspelPersonen">BordspelPersonen</a>
+                                <a class="dropdown-item" asp-controller="AdminUitgave" asp-action="Uitgaves">Uitgaves</a>
+                                <hr style="margin: 3px 0" />
+                                <a class="dropdown-item" asp-controller="AdminPersoon" asp-action="Personen">Personen</a>
+                                <a class="dropdown-item" asp-controller="AdminUitgeverij" asp-action="Uitgeverijen">Uitgeverijen</a>
+                                <hr style="margin: 3px 0" />
+                                <a class="dropdown-item" asp-controller="AdminGebruiker" asp-action="Gebruikers">Gebruikers</a>
                             </div>
-                        </li>
+                        </li>                        
                     </ul>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>

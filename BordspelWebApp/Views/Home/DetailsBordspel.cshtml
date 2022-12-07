@@ -11,29 +11,46 @@
     <div class="row">
         <div class="col m-1">
             <ul class="list-group">
-                @if (@Model.MinAantalSpelers == @Model.MaxAantalSpelers)
+                @if (Model.MinAantalSpelers == null || Model.MaxAantalSpelers == null)
                 {
-                    <li class="list-group-item bodyBG">@Model.MinAantalSpelers spelers</li>
+                    <li class="list-group-item bodyBG">@Model.MinAantalSpelers @Model.MaxAantalSpelers spelers</li>
+                }  
+                else
+                {
+                     @if (@Model.MinAantalSpelers == @Model.MaxAantalSpelers)
+                    {
+                        <li class="list-group-item bodyBG">@Model.MinAantalSpelers spelers</li>
+                    }
+                    else
+                    {
+                        <li class="list-group-item bodyBG">@Model.MinAantalSpelers tot @Model.MaxAantalSpelers spelers</li>
+                    }
+                }
+                @if (Model.MinSpeeltijd == null && Model.MaxSpeeltijd == null)
+                {
+                    <li class="list-group-item bodyBG">@Model.MinSpeeltijd @Model.MaxSpeeltijd minuten</li>
                 }
                 else
                 {
-                    <li class="list-group-item bodyBG">@Model.MinAantalSpelers tot @Model.MaxAantalSpelers spelers</li>
+                    @if (@Model.MinSpeeltijd == @Model.MaxSpeeltijd)
+                    {
+                        <li class="list-group-item bodyBG">@Model.MinSpeeltijd minuten</li>
+                    }
+                    else
+                    {
+                        <li class="list-group-item bodyBG">@Model.MinSpeeltijd tot @Model.MaxSpeeltijd minuten</li>
+                    }
                 }
-                @if (@Model.MinSpeeltijd == @Model.MaxSpeeltijd)
+                @if (Model.Leeftijd != null)
                 {
-                    <li class="list-group-item bodyBG">@Model.MinSpeeltijd minuten</li>
-                }
-                else
-                {
-                    <li class="list-group-item bodyBG">@Model.MinSpeeltijd tot @Model.MaxSpeeltijd minuten</li>
-                }
-                <li class="list-group-item bodyBG">vanaf @Model.Leeftijd jaar</li>
+                    <li class="list-group-item bodyBG">vanaf @Model.Leeftijd jaar</li>
+                }                
 
                 @foreach (var bordspelPersoon in Model.BordspelPersonen)
                 {
                     <li class="list-group-item bodyBG"><i>@bordspelPersoon.Rol.Beschrijving :</i> @bordspelPersoon.Persoon.Naam @bordspelPersoon.Persoon.Voornaam</li>
                 }
-                @foreach (var uitgave in Model.Uitgaven)
+                @foreach (var uitgave in Model.Uitgaves)
                 {
                     <li class="list-group-item bodyBG"><i>Uitgeverij :</i> @uitgave.Uitgeverij.Naam</li>
                 }
