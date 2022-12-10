@@ -1,9 +1,57 @@
-﻿@{
+﻿@model BordspelWebApp.ViewModels.Lists.ListGebruikersViewModel
+
+@{
     ViewData["Title"] = "Gebruikers";
 }
 
-
 <div class="container">
-    <h3 class="display-4">@ViewData["Title"]</h3>
-    <p>Hier komt de gebruikers-pagina</p>
+    <div class="row">
+        <div class="col">
+            <h3 class="display-4">@ViewData["Title"]</h3>
+        </div>
+        <div class="col align-self-center" style="display:flex; justify-content:end">
+            <a asp-controller="AdminGebruiker" asp-action="GrantPermissions" class="bodyBG">Verander rollen</a>
+        </div>
+    </div>
+    <div class="row">
+        <p class="lead">
+            Op deze pagina kan je een gebruiker bekijken of verwijderen.
+        </p>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <th class="col-md-3">
+                    @Html.DisplayNameFor(v => v.Gebruikers[0].Id)
+                </th>
+                <th class="col-md-2">
+                    @Html.DisplayNameFor(v => v.Gebruikers[0].Naam)
+                </th>
+                <th class="col-md-2">
+                    @Html.DisplayNameFor(v => v.Gebruikers[0].Voornaam)
+                </th>
+                <th class="col-md-3">
+                        &nbsp;
+                </th>
+            </thead>
+            <tbody>
+                @foreach (var gebruiker in Model.Gebruikers)
+                {
+                    <tr>
+                        <td class="col-md-3 align-middle bodyTekstkleur">
+                            @Html.DisplayFor(modelItem => gebruiker.Id)
+                        </td>
+                        <td class="col-md-2 align-middle bodyTekstkleur">
+                            @Html.DisplayFor(modelItem => gebruiker.Naam)
+                        </td>
+                        <td class="col-md-2 align-middle bodyTekstkleur">
+                            @Html.DisplayFor(modelItem => gebruiker.Voornaam)
+                        </td>
+                        <td class="col-md-3 align-middle bodyTekstkleur">
+                            <a asp-action="DetailsGebruiker" asp-route-id="@gebruiker.Id">Details</a>
+                            <a asp-action="DeleteGebruiker" asp-route-id="@gebruiker.Id">Verwijderen</a> 
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>

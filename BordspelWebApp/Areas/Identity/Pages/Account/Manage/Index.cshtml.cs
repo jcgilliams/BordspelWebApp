@@ -36,7 +36,9 @@ namespace BordspelWebApp.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+            [Required(ErrorMessage = "Gelieve een naam in te geven.")]
             public string Naam { get; set; }
+            [Required(ErrorMessage = "Gelieve een voornaam in te geven.")]
             public string Voornaam { get; set; }
         }
 

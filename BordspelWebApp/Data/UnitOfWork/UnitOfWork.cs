@@ -104,9 +104,9 @@ namespace BordspelWebApp.Data.UnitOfWork
             }
         }
 
-        public Task Save()
+        public async Task Save()
         {
-            throw new System.NotImplementedException();
+            await _context.SaveChangesAsync();
         }
     }
 }

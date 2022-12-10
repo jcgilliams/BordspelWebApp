@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using BordspelWebApp.Data;
 using BordspelWebApp.ViewModels.Details;
 using Microsoft.EntityFrameworkCore;
+using BordspelWebApp.Areas.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace BordspelWebApp.Controllers
 {
@@ -23,16 +25,19 @@ namespace BordspelWebApp.Controllers
         //    _logger = logger;
         //}
         public readonly BordspelWebAppContext _context;
-        public HomeController(BordspelWebAppContext context)
+        private UserManager<Gebruiker> _userManager;
+        public HomeController(BordspelWebAppContext context, UserManager<Gebruiker> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
         {
             ListBordspelViewModel vm = new ListBordspelViewModel()
             {
-                Bordspellen = _context.Bordspellen.OrderBy(x=>x.Naam).ToList()
+                Bordspellen = _context.Bordspellen.OrderBy(x=>x.Naam).ToList(),
+                Collectie = _context.Collecties.ToList() //  hier where met id gebruiker + in if statement contains bordspel zit in lijst
             };
             return View(vm);
         }

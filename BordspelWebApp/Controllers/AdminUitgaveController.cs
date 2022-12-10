@@ -4,6 +4,7 @@ using BordspelWebApp.ViewModels.Create;
 using BordspelWebApp.ViewModels.Delete;
 using BordspelWebApp.ViewModels.Lists;
 using BordspelWebApp.ViewModels.Update;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace BordspelWebApp.Controllers
 {
+    [Authorize]
     public class AdminUitgaveController : Controller
     {
         public readonly BordspelWebAppContext _context;

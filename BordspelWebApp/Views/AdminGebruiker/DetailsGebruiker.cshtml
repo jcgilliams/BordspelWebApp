@@ -1,0 +1,23 @@
+﻿@model BordspelWebApp.ViewModels.Details.DetailsGebruikerViewModel
+
+@{
+    ViewData["Title"] = "Details gebruiker";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3 class="display-4">@ViewData["Title"]</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col m-1">
+            <ul class="list-group">
+                <li class="list-group-item bodyBG"><b>Id:</b> @Model.Id</li>
+                <li class="list-group-item bodyBG"><b>Username:</b> @Model.UserName</li>
+                <li class="list-group-item bodyBG"><b>Naam: </b>@Model.Naam @Model.Voornaam</li>
+            </ul>
+        </div>
+    </div>
+    <button class="btn btn-outline-info" type="submit" onclick="location.href='@Url.Action("Gebruikers","AdminGebruiker")'">Terug</button>
+</div>
