@@ -6,10 +6,10 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-6">
+        <div class="col">
             <h3 class="display-4">@ViewData["Title"]</h3>
         </div>
-        <div class="col-6 mt-1 align-self-center" style="display:flex; justify-content:end">
+        <div class="col mt-1 align-self-center" style="display:flex; justify-content:end">
             <form asp-controller="Home" asp-action="Search" method="get">
                 <div class="form-actions no-color">
                     <p>
@@ -22,17 +22,6 @@
         </div>
     </div>
     <table class="table table-bordered table-striped">
-        <thead>
-        <th class="col-md-2">
-                @Html.DisplayNameFor(b => b.Bordspellen.ToList()[0].Afbeelding)
-        </th>
-        <th class="col-md-6">
-                @Html.DisplayNameFor(b => b.Bordspellen.ToList()[0].Naam)
-        </th>
-        <th class="col-md-4">
-            Details
-        </th>
-        </thead>
         <tbody>
             @foreach (var bordspel in Model.Bordspellen)
             {
@@ -40,13 +29,16 @@
                     <td class="col-md-2 align-middle">
                         <img src="~/images/@bordspel.Afbeelding" class="card-img-top" alt="@bordspel.Afbeelding" style="height: 50px; width: auto;">
                     </td>
-                    <td class="col-md-6 align-middle">
+                    <td class="col-md-6 align-middle bodyTekstkleur">
                         @Html.DisplayFor(modelItem => bordspel.Naam)
                     </td>
                     <td class="col-md-4 align-middle">
                         <a style="color: midnightblue" asp-action="DetailsBordspel" asp-route-id="@bordspel.Id">Details</a>
-                        |
-                        <a style="color: midnightblue">In collectie</a>
+                        @if (this.User.Identity.IsAuthenticated)
+                        {      
+                            <br />
+                                <a asp-controller="Collectie" asp-action="Create" asp-route-id="@bordspel.Id" style="color:midnightblue">In collectie zetten</a>
+                        }
                     </td>
                 </tr>
             }

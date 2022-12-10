@@ -9,7 +9,7 @@ a.nav-link {
 }
 
 /* Tekstkleur van navbar brand/tekst aanpassen */
-.navbar-custom .navbar-brand,
+.navbar-custom .navbar-brand .nav-link,
 .navbar-custom .navbar-text {
     color: midnightblue;
 }
@@ -20,8 +20,8 @@ a.nav-link {
 }
 
 /* Tekstkleur van navbar links (bij active/hover) aanpassen */
-.navbar-custom .nav-item.active .nav-link,
-.navbar-custom .nav-item:hover .nav-link {
+.navbar-custom .nav-item.active,
+.navbar-custom .nav-item:hover {
     color: cadetblue;
 }
 

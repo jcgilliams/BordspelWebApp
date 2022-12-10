@@ -6,27 +6,32 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-6">
+        <div class="col">
             <h3 class="display-4">@ViewData["Title"]</h3>
         </div>
-        <div class="col-6 align-self-center" style="display:flex; justify-content:end">
+        <div class="col align-self-center" style="display:flex; justify-content:end">
             <a asp-controller="AdminBordspelPersoon" asp-action="CreateBordspelPersoon" class="bodyBG">Maak nieuwe BordspelPersoon aan</a>
         </div>
+    </div>
+    <div class="row">
+        <p class="lead">
+            Op deze pagina vind je een overicht van alle personen die gekoppeld zijn met een spel via een bepaalde rol. Je kan er ook zelf aanmaken, aanpassen of verwijderen.
+        </p>
         <table class="table table-bordered table-striped">
             <tbody>
                 @foreach (var bordspelPersoon in Model.BordspelPersonen)
                 {
                     <tr>
-                        <td class="col-md-3 align-middle">
+                        <td class="col-md-3 align-middle bodyBG">
                             @Html.DisplayFor(modelItem => bordspelPersoon.Bordspel.Naam)
                         </td>
-                        <td class="col-md-3 align-middle">
+                        <td class="col-md-3 align-middle bodyBG">
                             @Html.DisplayFor(modelItem => bordspelPersoon.Persoon.Naam) @Html.DisplayFor(modelItem => bordspelPersoon.Persoon.Voornaam)
                         </td>
-                        <td class="col-md-2 align-middle">
+                        <td class="col-md-2 align-middle bodyBG">
                             @Html.DisplayFor(modelItem => bordspelPersoon.Rol.Beschrijving)
                         </td>
-                        <td class="col-md-2 align-middle">
+                        <td class="col-md-2 align-middle bodyBG">
                             <a asp-action="EditBordspelPersoon" asp-route-id="@bordspelPersoon.Id">Aanpassen</a>
                         </td>
                         <td class="col-md-2 align-middle">
@@ -38,3 +43,4 @@
             </tbody>
         </table>
     </div>
+</div>

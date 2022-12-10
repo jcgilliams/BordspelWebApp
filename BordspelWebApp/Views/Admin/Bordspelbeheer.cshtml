@@ -6,24 +6,29 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-6">
+        <div class="col">
             <h3 class="display-4">@ViewData["Title"]</h3>
         </div>
-        <div class="col-6 align-self-center" style="display:flex; justify-content:end">
+        <div class="col align-self-center" style="display:flex; justify-content:end">
             <a asp-controller="Admin" asp-action="CreateBordspel" class="bodyBG">Maak nieuw bordspel aan</a>
         </div>
+    </div>
+    <div class="row">
+        <p class="lead">
+            Op deze pagina vind je een overzicht van alle bordspellen. Je kan via hier ook aanmaken, aanpassen of verwijderen.
+        </p>        
         <table class="table table-bordered table-striped">
             <tbody>
                 @foreach (var bordspel in Model.Bordspellen)
                 {
                     <tr>
-                        <td class="col-md-6 align-middle">
+                        <td class="col-md-6 align-middle bodyBG">
                             @Html.DisplayFor(modelItem => bordspel.Naam)
                         </td>
-                        <td class="col-md-3 align-middle">
+                        <td class="col-md-3 align-middle bodyBG">
                             <a asp-action="EditBordspel" asp-route-id="@bordspel.Id">Aanpassen</a>
                         </td>
-                        <td class="col-md-3 align-middle">
+                        <td class="col-md-3 align-middle bodyBG">
                             <a asp-action="DeleteBordspel" asp-route-id="@bordspel.Id">Verwijderen</a>
                         </td>
 

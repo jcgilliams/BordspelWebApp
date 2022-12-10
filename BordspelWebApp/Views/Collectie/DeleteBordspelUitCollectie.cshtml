@@ -1,0 +1,27 @@
+﻿@model BordspelWebApp.ViewModels.Delete.DeleteBordspelUitCollectieModelView
+
+@{
+    ViewData["Title"] = "Verwijder spel uit collectie";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3 class="display-4">@ViewData["Title"]</h3>
+            <p class="lead">
+                Op deze pagina kan je een spel uit je collectie verwijderen.
+            </p>
+
+            <p>Ben je zeker dat je het bordspel wil verwijderen?</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Verwijder" class="btn btn-outline-info" />
+            </form>
+        </div>
+    </div>
+    <a asp-action="Index" class="bodyBG">Terug naar de lijst</a>
+

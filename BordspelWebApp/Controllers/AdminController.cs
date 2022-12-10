@@ -4,6 +4,7 @@ using BordspelWebApp.ViewModels.Create;
 using BordspelWebApp.ViewModels.Delete;
 using BordspelWebApp.ViewModels.Lists;
 using BordspelWebApp.ViewModels.Update;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -14,6 +15,7 @@ using System.Threading.Tasks;
 
 namespace BordspelWebApp.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         public readonly BordspelWebAppContext _context;
@@ -79,8 +81,8 @@ namespace BordspelWebApp.Controllers
                 Jaar = bordspel.Jaar,
                 MinAantalSpelers = bordspel.MinAantalSpelers,
                 MaxAantalSpelers = bordspel.MaxAantalSpelers,
-                MinSpeeltijd = bordspel.MinAantalSpelers,
-                MaxSpeeltijd = bordspel.MaxAantalSpelers,
+                MinSpeeltijd = bordspel.MinSpeeltijd,
+                MaxSpeeltijd = bordspel.MaxSpeeltijd,
                 Leeftijd = bordspel.Leeftijd,
                 Afbeelding = bordspel.Afbeelding,
             };
@@ -117,8 +119,8 @@ namespace BordspelWebApp.Controllers
                 Jaar = bordspel.Jaar,
                 MinAantalSpelers = bordspel.MinAantalSpelers,
                 MaxAantalSpelers = bordspel.MaxAantalSpelers,
-                MinSpeeltijd = bordspel.MinAantalSpelers,
-                MaxSpeeltijd = bordspel.MaxAantalSpelers,
+                MinSpeeltijd = bordspel.MinSpeeltijd,
+                MaxSpeeltijd = bordspel.MaxSpeeltijd,
                 Leeftijd = bordspel.Leeftijd,
                 Afbeelding = bordspel.Afbeelding,
             };
@@ -146,8 +148,8 @@ namespace BordspelWebApp.Controllers
                         Jaar = vm.Jaar,
                         MinAantalSpelers = vm.MinAantalSpelers,
                         MaxAantalSpelers = vm.MaxAantalSpelers,
-                        MinSpeeltijd = vm.MinAantalSpelers,
-                        MaxSpeeltijd = vm.MaxAantalSpelers,
+                        MinSpeeltijd = vm.MinSpeeltijd,
+                        MaxSpeeltijd = vm.MaxSpeeltijd,
                         Leeftijd = vm.Leeftijd,
                         Afbeelding = vm.Afbeelding,
                     };

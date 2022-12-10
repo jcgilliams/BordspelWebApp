@@ -1,0 +1,27 @@
+﻿@model BordspelWebApp.ViewModels.GrantPermissionsViewModel
+
+@{
+	ViewData["Title"] = "Grant Permission";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3 class="display-4">@ViewData["Title"]</h3>
+        </div>
+    </div>
+    <div class="row">
+        <form asp-action="GrantPermissions" method="post">
+            <div class="form-group">
+                <select asp-for="GebruikerId" asp-items="Model.Gebruikers"></select>
+            </div>
+            <div class="form-group">
+                <select asp-for="RolId" asp-items="Model.Rollen"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Opslaan" class="btn btn-outline-info" />
+            </div>
+        </form>
+    </div>
+    <a asp-action="Gebruikers" class="bodyBG">Terug naar de lijst</a>
+</div>

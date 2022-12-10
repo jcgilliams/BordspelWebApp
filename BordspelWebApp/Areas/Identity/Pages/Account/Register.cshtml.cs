@@ -46,22 +46,24 @@ namespace BordspelWebApp.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "Gelieve een email in te geven.")]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "Gelieve een paswoord in te geven.")]
+            [StringLength(100, ErrorMessage = "Het paswoord moet minstens {2} en max {1} karakters lang zijn.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Compare("Password", ErrorMessage = "De paswoorden komen niet overeen.")]
             public string ConfirmPassword { get; set; }
+            [Required(ErrorMessage = "Gelieve een naam in te geven.")]
             public string Naam { get; set; }
+            [Required(ErrorMessage = "Gelieve een voornaam in te geven.")]
             public string Voornaam { get; set; }
         }
 
@@ -77,7 +79,7 @@ namespace BordspelWebApp.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new Gebruiker { UserName = Input.Email, Email = Input.Email };
+                var user = new Gebruiker { UserName = Input.Email, Email = Input.Email, Naam = Input.Naam, Voornaam = Input.Naam };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

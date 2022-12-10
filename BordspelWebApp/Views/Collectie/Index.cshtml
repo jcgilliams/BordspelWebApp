@@ -1,9 +1,30 @@
-﻿@{
+﻿@model BordspelWebApp.ViewModels.Create.CreateCollectionViewModel
+@{
     ViewData["Title"] = "Collectie";
 }
 
-
 <div class="container">
-    <h3 class="display-4">@ViewData["Title"]</h3>
-    <p>Hier komt de collectiepagina</p>
+    <div class="row">
+        <div class="col">
+            <h3 class="display-4">@ViewData["Title"]</h3>
+        </div>
+    </div>
+    <table class="table table-bordered table-striped">
+        <tbody>
+        @foreach (var collectieItem in Model.Collecties)
+        {                             
+            <tr>
+                <td class="col-md-2 align-middle">
+                    <img src="~/images/@collectieItem.Bordspel.Afbeelding" class="card-img-top" alt="@collectieItem.Bordspel.Afbeelding" style="height: 50px; width: auto;">
+                </td>
+                <td class="col-md-6 align-middle bodyTekstkleur">
+                    @Html.DisplayFor(modelItem => @collectieItem.Bordspel.Naam)
+                </td>
+                <td class="col-md-4 align-middle">
+                    <a asp-action="DeleteBordspelUitCollectie" asp-route-id="@collectieItem.Id" style="color:midnightblue">Uit collectie halen</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
 </div>
