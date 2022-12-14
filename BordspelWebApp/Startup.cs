@@ -30,9 +30,8 @@ namespace BordspelWebApp
         {
             services.AddControllersWithViews();
             services.AddDbContext<BordspelWebAppContext>(options =>
-                                    options.UseSqlServer(Configuration.GetConnectionString("LocalDBConnection")));
-            // voor andere connectie:
-            //                      options.UseSqlServer(Configuration.GetConnectionString("BordspelConnection")));
+                                      //options.UseSqlServer(Configuration.GetConnectionString("LocalDBConnection")));
+                                      options.UseSqlServer(Configuration.GetConnectionString("BordspelConnection")));
             services.AddDefaultIdentity<Gebruiker>().AddRoles<IdentityRole>().AddEntityFrameworkStores<BordspelWebAppContext>();
             services.AddRazorPages();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
